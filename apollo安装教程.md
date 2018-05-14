@@ -69,7 +69,7 @@
 
 在浏览器中打开 http://localhost:8888/ (注意，不要使用代理！！！),显示如下
 
-![image][tmp]
+![](https://github.com/RockAutonomous/blog/blob/master/images/dreamview1.png)
 
 进入apollo（如果想在多个终端中进入apollo，均是输入下面的命令）：
 
