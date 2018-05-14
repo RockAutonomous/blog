@@ -7,3 +7,4 @@
 4. [DRL&ADS(2): 深度强化学习及DQN算法讲解](https://github.com/RockAutonomous/blog/blob/master/DRL%26ADS(2)-%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%8F%8ADQN%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3) 作者：[@J.Q.Wang](https://github.com/Jin0932)
 5. [DRL&ADS(3): ADS组成及DRL在Torcs中的应用举例](DRL&ADS（3）) 作者：[@J.Q.Wang](https://github.com/Jin0932)
 6. [激光雷达联合校准](lidar-camera-calibration.md) 作者：[@qiyutao](https://github.com/qiyutao)
+7. [apollo安装教程](apollo安装教程.md) 作者：[@HangHuang](https://github.com/HangHuang)
