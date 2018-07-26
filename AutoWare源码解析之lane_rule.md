@@ -1,6 +1,6 @@
-#AutoWare源码解析----lane_rule
+# AutoWare源码解析----lane_rule
 
-####让我们一起来看lane_rule.cpp源码吧
+#### 让我们一起来看lane_rule.cpp源码吧
 在代码中定义了topic
 
 ```
@@ -43,7 +43,7 @@ void create_waypoint(const autoware_msgs::LaneArray& msg)
 ...
 }
 ```
-####下面我们来看看源码上所订阅的topic
+#### 下面我们来看看源码上所订阅的topic
 ```
 ros::Subscriber waypoint_sub = n.subscribe("/lane_waypoints_array", sub_waypoint_queue_size, create_waypoint);
 ros::Subscriber point_sub = n.subscribe("/vector_map_info/point", sub_vmap_queue_size, cache_point);
@@ -66,7 +66,7 @@ Subscribers:
 ```
 可以发现Publishers为none，并没有发布者，因此我们获取不到topic的任何信息，其它几个topic也是如此，就不一一贴上来了。
 
-####现在我们来看看目前订阅的topic即/lane_waypoints_array（/config/lane_rule也是从配置文件中读取，就不讨论了）
+#### 现在我们来看看目前订阅的topic即/lane_waypoints_array（/config/lane_rule也是从配置文件中读取，就不讨论了）
 
 我们先看/lane_waypoints_array是由谁发布的:
 ```
@@ -164,4 +164,4 @@ Vector3  angular
 ```
 根据上面一系列msg类型，你可以了解到lane其实一个一系列带有坐标带有角速度和线速度的点。
 
-###目前来说lane_rule这个node没有取到什么作用，它只是将/lane_waypoints_array这个topic发布的内容(laneArray)转发给了lane_select，当有了高精度地图的情况下，才有它真正有用的时候，我也仔细阅读了有高精度地图情况下的函数处理（根据高精度地图里的信息来修正目前的lane），等到时候有了高精度地图，再进行进一步研究。
+### 目前来说lane_rule这个node没有取到什么作用，它只是将/lane_waypoints_array这个topic发布的内容(laneArray)转发给了lane_select，当有了高精度地图的情况下，才有它真正有用的时候，我也仔细阅读了有高精度地图情况下的函数处理（根据高精度地图里的信息来修正目前的lane），等到时候有了高精度地图，再进行进一步研究。
