@@ -1,0 +1,60 @@
+# sensor_msgs/PointCloud2
+# 此消息包含N维点的集合，其中可能包含法线，强度等附加信息。点数据以二进制Blob存储，其布局由“fields”数组的内容描述
+# 点云数据可以以2d（与图像类似）或1d（无序）排列。排列为2d图像的点云可以由相机深度传感器（stereo or time-of-flight）产生。
+
+
+Header header  #记录传感器数据采集的时间和坐标框架ID（对于3d点）
+uint32 height #我们的设备值为1，表示排列无序
+uint32 width #点云的长度，不是固定值
+PointField[] fields # 描述二进制数据blob中的通道及其布局，貌似是个固定值。例如：
+#  - 
+#    name: x
+#    offset: 0
+#    datatype: 7 #7代表数据类型为FLOAT32
+#    count: 1
+#  - 
+#    name: y
+#    offset: 4
+#    datatype: 7
+#    count: 1
+#  - 
+#    name: z
+#    offset: 8
+#    datatype: 7
+#    count: 1
+#  - 
+#    name: intensity
+#    offset: 16
+#    datatype: 7
+#    count: 1
+#  - 
+#    name: ring
+#    offset: 20
+#    datatype: 4
+#    count: 1
+#经过voxel_grid_filter节点处理后，最后一个field（ring）被过滤了
+
+bool    is_bigendian # 这个数据是否是大端字节序？我们的设备值为False
+uint32  point_step   #以字节为单位的点的长度，我们的设备值为32
+uint32  row_step    # 行的长度（以字节为单位），不是固定值
+uint8[] data        #  实际点数据，大小为（row_step * height）
+
+bool is_dense      # True if there are no invalid points如果没有无效点，则为真
+
+
+
+#sensor_msgs/PointField
+# 上面的PointField消息的格式如下：
+uint8 INT8    = 1
+uint8 UINT8   = 2
+uint8 INT16   = 3
+uint8 UINT16  = 4
+uint8 INT32   = 5
+uint8 UINT32  = 6
+uint8 FLOAT32 = 7
+uint8 FLOAT64 = 8
+
+string name      # Name of field
+uint32 offset    # Offset from start of point struct
+uint8  datatype  # Datatype enumeration, see above
+uint32 count     # How many elements in the field
