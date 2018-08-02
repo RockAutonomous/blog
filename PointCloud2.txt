@@ -35,7 +35,7 @@ PointField[] fields # 描述二进制数据blob中的通道及其布局，貌似
 #经过voxel_grid_filter节点处理后，最后一个field（ring）被过滤了
 
 bool    is_bigendian # 这个数据是否是大端字节序？我们的设备值为False
-uint32  point_step   #以字节为单位的点的长度，我们的设备值为32
+uint32  point_step   #以字节为单位的点的长度
 uint32  row_step    # 行的长度（以字节为单位），不是固定值
 uint8[] data        #  实际点数据，大小为（row_step * height）
 
